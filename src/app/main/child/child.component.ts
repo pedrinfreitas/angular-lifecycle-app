@@ -36,14 +36,26 @@ export class ChildComponent
     this.newEvent("constructor");
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     console.log(`${this.name} - ngOnInit`);
     this.newEvent("ngOnInit");
   }
 
   ngOnChanges(changes: SimpleChanges) {
+
     console.log(`${this.name} - ngOnChanges`);
+    console.log(changes);
     this.newEvent("ngOnChanges");
+
+    for( let propName in changes){
+      console.log(propName);
+      console.log(changes[propName]);
+      
+    }
+    // if (changes['name']) {
+    //   console.log('novo nome: ' + changes['name'].currentValue);
+      
+    // }
   }
 
   ngAfterContentInit() {
